@@ -92,17 +92,20 @@ const Game = () => {
           gap: "10px",
         }}
       >
-        <HandImage src={`images/${noteName}.jpeg`} alt={imageDescription} />
+        <HandImage
+          src={`images/notes/${noteName}.jpeg`}
+          alt={imageDescription}
+        />
         <Box>
           <BaseButton
             onClick={handleReloadButtonClick}
-            source={"images/refresh.png"}
+            source={"icons/refresh.png"}
             label="mudar nota"
             hasIcon
           />
           <BaseButton
             onClick={() => new Audio(`/sounds/${soundFile}`).play()}
-            source={"images/volume.png"}
+            source={"icons/volume.png"}
             label="ouvir nota"
             hasIcon
           />
@@ -124,7 +127,7 @@ const Game = () => {
   }, [round]);
 
   const renderButtons = () => {
-    const validNoteNames = ["do", "re", "mi", "fa", "sol", "la", "si"];
+    const validNoteNames = ["dó", "ré", "mi", "fá", "sol", "lá", "si"];
     const validNotes = notes.filter((note) =>
       validNoteNames.includes(note.name)
     );
@@ -138,7 +141,7 @@ const Game = () => {
             onClick={() => handleButtonClick(note.name)}
             aria-label={note.name.replace(/\d+/g, "")}
           >
-            {note.name.replace(/\d+/g, "")}
+            {note.name.replace(/\d+/g, "").toUpperCase()}
           </Button>
         ))}
       </NoteButtonsBox>
@@ -156,10 +159,11 @@ const Game = () => {
 
       {renderButtons()}
       <BaseButton
-        source="images/home.png"
+        source="icons/arrow.png"
         ariaLabel="voltar para tela inicial"
         path="/"
         label="home"
+        style={{ alignSelf: "flex-start", paddingLeft: "30px" }}
         hasIcon
       />
     </Container>

@@ -31,8 +31,8 @@ const About = () => {
       </p>
       <BaseButton
         path="/"
-        hasIcon={true}
-        source="images/home.png"
+        hasIcon
+        source="icons/home.png"
         label="home"
         ariaLabel="voltar para a tela inicial"
       />

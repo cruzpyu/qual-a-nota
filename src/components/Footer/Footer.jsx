@@ -1,8 +1,14 @@
 const Footer = () => {
   return (
-    <p>
-      desenvolvido por <a href="/">Yu</a>
-    </p>
+    <a
+      style={{ color: "white", fontWeight: "normal" }}
+      href="https://www.linkedin.com/in/yullie/"
+    >
+      Desenvolvido por
+      <span style={{ marginLeft: "5px", color: " #646cff", fontWeight: 500 }}>
+        Yu
+      </span>
+    </a>
   );
 };
 

@@ -2,9 +2,17 @@ import { Link } from "react-router-dom";
 import { Button, Label } from "../../styles/app";
 import PropTypes from "prop-types";
 
-const BaseButton = ({ ariaLabel, onClick, source, label, hasIcon, path }) => {
+const BaseButton = ({
+  style,
+  ariaLabel,
+  onClick,
+  source,
+  label,
+  hasIcon,
+  path,
+}) => {
   return (
-    <Link to={path}>
+    <Link role="button" style={style} to={path}>
       <Button aria-label={ariaLabel} onClick={onClick}>
         {hasIcon && <img src={source} style={{ width: "16px" }} />}
         <Label>{label}</Label>

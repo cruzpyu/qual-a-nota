@@ -7,15 +7,16 @@ const Container = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  padding: 4em 1em;
 `;
 
 const Title = styled.h1`
-  font-size: 28px;
+  font-size: 1.75em;
 `;
 
 const HandImage = styled.img`
   width: 75%;
-  height: 42vh;
+  height: 35vh;
   border-radius: 10px;
   margin-bottom: 10px;
 `;
@@ -52,7 +53,7 @@ const NoteButtonsBox = styled.div`
 `;
 const Label = styled.label`
   color: #ffffff;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: normal;
 `;
 const Button = styled.button`

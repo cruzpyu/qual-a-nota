@@ -1,37 +1,37 @@
 export const notes = [
   {
-    name: "re2",
-    file: "re",
+    name: "ré2",
+    file: "ré",
     alt: "A seta aponta para o espaço antes do primeiro dedo",
   },
   { name: "mi", file: "mi", alt: "A seta aponta para o primeiro dedo" },
   {
-    name: "fa",
-    file: "fa",
+    name: "fá",
+    file: "fá",
     alt: "A seta aponta para o espaço entre o primeiro e o segundo dedo",
   },
   { name: "sol", file: "sol", alt: "A seta aponta para o segundo dedo" },
   {
-    name: "la",
-    file: "la",
+    name: "lá",
+    file: "lá",
     alt: "A seta aponta para o espaço entre o segundo e o terceiro dedo",
   },
   { name: "si", file: "si", alt: "A seta aponta para o terceiro dedo" },
   {
-    name: "do",
-    file: "do",
+    name: "dó",
+    file: "dó",
     alt: "A seta aponta para o espaço entre o terceiro e o quarto dedo",
   },
-  { name: "re", file: "re", alt: "A seta aponta para o quarto dedo" },
-  
+  { name: "ré", file: "ré", alt: "A seta aponta para o quarto dedo" },
+
   {
     name: "mi2",
     file: "mi",
     alt: "A seta aponta para o espaço entre o quarto e o quinto dedo",
   },
   {
-    name: "fa2",
-    file: "fa",
+    name: "fá2",
+    file: "fá",
     alt: "A seta aponta para o quinto dedo",
   },
   {
