@@ -1,34 +1,21 @@
-import { Link } from "react-router-dom";
+import Footer from "../components/Footer/Footer";
+import LinkButton from "../components/LinkButton/LinkButton";
+import { HandImage, Container, Title, Box } from "../styles/app";
 
 const Home = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: "100vw",
-      }}
-    >
-      <h1>Qual é a nota?</h1>
-      <img
-        style={{ width: "80%", height: "40vh", borderRadius: "10px" }}
+    <Container>
+      <Title>Qual é a nota?</Title>
+      <HandImage
         src="images/hand.jpeg"
         alt="Vê-se uma mão direita de uma pessoa de pele branca, com cinco dedos. A palma da mão está virada para a câmera e a mão está inclinada na horizontal."
       />
-      <div>
-        <button>
-          <Link to="/Game">começar</Link>
-        </button>
-        <button>
-          <Link to="/About">sobre o jogo</Link>
-        </button>
-      </div>
-      <p>
-        desenvolvido por <a href="/">Yu</a>
-      </p>
-    </div>
+      <Box>
+        <LinkButton path="/game" text="começar" />
+        <LinkButton path="/about" text="sobre o jogo" />
+      </Box>
+      <Footer />
+    </Container>
   );
 };
 export default Home;

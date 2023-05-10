@@ -3,7 +3,16 @@ import { Howl } from "howler";
 import { useSpring, animated } from "react-spring";
 import { Modal } from "../components/Modal/Modal";
 import { notes, shakeAnimation } from "../utils/game-utils";
-import { Link } from "react-router-dom";
+import {
+  HandImage,
+  Box,
+  NoteButtonsBox,
+  ColumnBox,
+  Container,
+  Title,
+} from "../styles/app";
+import IconButton from "../components/IconButton/IconButton";
+import LinkButton from "../components/LinkButton/LinkButton";
 
 const Game = () => {
   const [images, setImages] = useState([]);
@@ -77,33 +86,23 @@ const Game = () => {
     const soundFile = noteFile + ".wav";
 
     return (
-      <div
+      <ColumnBox
         key={noteName}
         style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          justifyContent: "center",
           gap: "10px",
         }}
       >
-        <img
-          src={`images/${noteName}.jpeg`}
-          alt={imageDescription}
-          style={{
-            width: "80%",
-            borderRadius: "10px",
-          }}
-        />
-        <div style={{ justifyContent: "space-between" }}>
-          <button onClick={handleReloadButtonClick}>
-            <img src="images/refresh.png" style={{ width: "20px" }} />
-          </button>
-          <button onClick={() => new Audio(`/sounds/${soundFile}`).play()}>
-            <img src="images/volume.png" style={{ width: "20px" }} />
-          </button>
-        </div>
-        <p>qual a nota?</p>
+        <HandImage src={`images/${noteName}.jpeg`} alt={imageDescription} />
+        <Box>
+          <IconButton
+            onClick={handleReloadButtonClick}
+            source={"images/refresh.png"}
+          />
+          <IconButton
+            onClick={() => new Audio(`/sounds/${soundFile}`).play()}
+            source={"images/volume.png"}
+          />
+        </Box>
         {errorMessage && (
           <animated.p style={feedbackStyle}>{errorMessage}</animated.p>
         )}
@@ -113,7 +112,7 @@ const Game = () => {
             feedback={successMessage}
           />
         )}
-      </div>
+      </ColumnBox>
     );
   };
   useEffect(() => {
@@ -127,42 +126,32 @@ const Game = () => {
     );
 
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-        }}
-      >
+      <NoteButtonsBox>
         {validNotes.map((note) => (
-          <button key={note.name} onClick={() => handleButtonClick(note.name)}>
+          <button
+            style={{ color: "#646cff" }}
+            key={note.name}
+            onClick={() => handleButtonClick(note.name)}
+          >
             {note.name.replace(/\d+/g, "")}
           </button>
         ))}
-      </div>
+      </NoteButtonsBox>
     );
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "row", gap: "30px" }}>
+    <Container>
+      <Title>qual a nota?</Title>
+      <Box>
         <p>Acertos: {hits}</p>
         <p>Erros: {errors}</p>
-      </div>
+      </Box>
       {currentImage ? renderImages() : "Carregando imagem..."}
 
       {renderButtons()}
-      <div>
-        <Link to="/">Voltar</Link>
-      </div>
-    </div>
+      <LinkButton path="/" text="home" />
+    </Container>
   );
 };
 
