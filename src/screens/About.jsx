@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import { ColumnBox, Container } from "../styles/app";
-import LinkButton from "../components/LinkButton/LinkButton";
+import { TextBox, Title } from "../styles/app";
+import BaseButton from "../components/BaseButton/BaseButton";
 
 const About = () => {
   return (
-    <ColumnBox>
+    <TextBox>
+      <Title> Qual é a nota? </Title>
       <p>
         O aplicativo "Qual é a Nota?" é uma ferramenta criada para facilitar o
         aprendizado de partitura e auxiliar músicos em treinar a memorização da
@@ -29,8 +29,14 @@ const About = () => {
         desenvolver habilidades de memorização das notas. Com essa ferramenta,
         aprender música pode se tornar mais fácil e divertido.
       </p>
-      <LinkButton path="/" text="home" />
-    </ColumnBox>
+      <BaseButton
+        path="/"
+        hasIcon={true}
+        source="images/home.png"
+        label="home"
+        ariaLabel="voltar para a tela inicial"
+      />
+    </TextBox>
   );
 };
 export default About;

@@ -10,9 +10,9 @@ import {
   ColumnBox,
   Container,
   Title,
+  Button,
 } from "../styles/app";
-import IconButton from "../components/IconButton/IconButton";
-import LinkButton from "../components/LinkButton/LinkButton";
+import BaseButton from "../components/BaseButton/BaseButton";
 
 const Game = () => {
   const [images, setImages] = useState([]);
@@ -26,7 +26,7 @@ const Game = () => {
 
   const [feedbackStyle, setFeedbackStyle] = useSpring(() => ({
     transform: "scale(1)",
-    color: "red",
+    color: "#B04759",
   }));
 
   const generateNewImage = () => {
@@ -47,7 +47,7 @@ const Game = () => {
     setRound(round + 1);
     setOpenModal(true);
     setSuccessMessage(
-      `Parabéns, você acertou! A nota correta era ${currentImage?.note?.name.replace(
+      `Você acertou! A nota correta era ${currentImage?.note?.name.replace(
         /2/,
         ""
       )}!`
@@ -59,7 +59,7 @@ const Game = () => {
     new Howl({ src: ["sounds/error.mp3"] }).play();
     setFeedbackStyle(shakeAnimation);
     setErrors(errors + 1);
-    setErrorMessage("Você errou! Continue tentando... (:");
+    setErrorMessage("Você errou! Continue tentando...");
   };
 
   const handleButtonClick = (note) => {
@@ -94,13 +94,17 @@ const Game = () => {
       >
         <HandImage src={`images/${noteName}.jpeg`} alt={imageDescription} />
         <Box>
-          <IconButton
+          <BaseButton
             onClick={handleReloadButtonClick}
             source={"images/refresh.png"}
+            label="mudar nota"
+            hasIcon
           />
-          <IconButton
+          <BaseButton
             onClick={() => new Audio(`/sounds/${soundFile}`).play()}
             source={"images/volume.png"}
+            label="ouvir nota"
+            hasIcon
           />
         </Box>
         {errorMessage && (
@@ -128,13 +132,14 @@ const Game = () => {
     return (
       <NoteButtonsBox>
         {validNotes.map((note) => (
-          <button
+          <Button
             style={{ color: "#646cff" }}
             key={note.name}
             onClick={() => handleButtonClick(note.name)}
+            aria-label={note.name.replace(/\d+/g, "")}
           >
             {note.name.replace(/\d+/g, "")}
-          </button>
+          </Button>
         ))}
       </NoteButtonsBox>
     );
@@ -142,15 +147,21 @@ const Game = () => {
 
   return (
     <Container>
-      <Title>qual a nota?</Title>
+      <Title>Qual é a nota?</Title>
       <Box>
-        <p>Acertos: {hits}</p>
-        <p>Erros: {errors}</p>
+        <p>acertos: {hits}</p>
+        <p>erros: {errors}</p>
       </Box>
       {currentImage ? renderImages() : "Carregando imagem..."}
 
       {renderButtons()}
-      <LinkButton path="/" text="home" />
+      <BaseButton
+        source="images/home.png"
+        ariaLabel="voltar para tela inicial"
+        path="/"
+        label="home"
+        hasIcon
+      />
     </Container>
   );
 };

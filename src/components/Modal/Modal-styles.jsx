@@ -16,6 +16,8 @@ export const styles = {
     borderRadius: "10px",
     display: "flex",
     flexDirection: "column",
+    gap: "20px",
+    width: "80%",
     alignItems: "center",
   },
   titleStyle: {
@@ -24,11 +26,8 @@ export const styles = {
     color: "green",
   },
   paragraphStyle: {
-    fontSize: "18px",
+    fontSize: "16px",
     textAlign: "center",
     color: "black",
-  },
-  buttonStyle: {
-    marginTop: "20px",
   },
 };
