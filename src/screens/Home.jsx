@@ -17,12 +17,14 @@ const Home = () => {
           path="/game"
           label="começar"
           ariaLabel="começar o jogo"
+          iconSize={16}
         />
         <BaseButton
           hasIcon
           source="icons/info.png"
           path="/about"
           label="sobre o jogo"
+          iconSize={16}
         />
       </Box>
       <Footer />

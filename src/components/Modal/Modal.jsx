@@ -1,4 +1,5 @@
 import { Button } from "../../styles/app";
+import BaseButton from "../BaseButton/BaseButton";
 import { styles } from "./Modal-styles";
 
 export const Modal = ({ onClick, feedback }) => {
@@ -7,7 +8,7 @@ export const Modal = ({ onClick, feedback }) => {
       <div style={styles.modalBoxStyle}>
         <h1 style={styles.titleStyle}>Parabéns!</h1>
         <p style={styles.paragraphStyle}>{feedback}</p>
-        <Button onClick={onClick}>fechar</Button>
+        <BaseButton onClick={onClick} label="fechar" />
       </div>
     </div>
   );

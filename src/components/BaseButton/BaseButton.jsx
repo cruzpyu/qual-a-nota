@@ -1,23 +1,23 @@
-import { Link } from "react-router-dom";
-import { Button, Label } from "../../styles/app";
 import PropTypes from "prop-types";
+import { Button, Label, StyledLink } from "../../styles/app";
+import Icon from "../Icon/Icon";
 
 const BaseButton = ({
-  style,
   ariaLabel,
   onClick,
   source,
   label,
   hasIcon,
   path,
+  iconSize,
 }) => {
   return (
-    <Link role="button" style={style} to={path}>
+    <StyledLink role="button" to={path}>
       <Button aria-label={ariaLabel} onClick={onClick}>
-        {hasIcon && <img src={source} style={{ width: "16px" }} />}
+        {hasIcon && <Icon source={source} size={iconSize} />}
         <Label>{label}</Label>
       </Button>
-    </Link>
+    </StyledLink>
   );
 };
 
@@ -28,6 +28,7 @@ BaseButton.propTypes = {
   label: PropTypes.string.isRequired,
   hasIcon: PropTypes.bool,
   path: PropTypes.string,
+  iconSize: PropTypes.number,
 };
 
 export default BaseButton;

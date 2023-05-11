@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -7,19 +8,19 @@ const Container = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  padding: 4em 1em;
 `;
 
 const Title = styled.h1`
-  font-size: 1.75em;
+  font-size: 5vw;
 `;
 
 const HandImage = styled.img`
-  width: 75%;
-  height: 35vh;
+  width: 70%;
+  max-height: 35vh;
   border-radius: 10px;
   margin-bottom: 10px;
 `;
+
 const Box = styled.div`
   width: 100%;
   display: flex;
@@ -27,6 +28,7 @@ const Box = styled.div`
   gap: 30px;
   flex-wrap: wrap;
 `;
+
 const ColumnBox = styled.div`
   width: 100%;
   display: flex;
@@ -34,8 +36,10 @@ const ColumnBox = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
+
 const TextBox = styled.div`
   width: 100%;
+  max-width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -44,17 +48,30 @@ const TextBox = styled.div`
   padding: 20px;
   gap: 20px;
 `;
+
 const NoteButtonsBox = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
-  width: 70%;
+  width: 80%;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
+
 const Label = styled.label`
   color: #ffffff;
   font-size: 1em;
   font-weight: normal;
+`;
+const StyledLink = styled(Link)`
+  display: flex;
+  gap: 10px;
+  align-items: center;
 `;
 const Button = styled.button`
   border-radius: 8px;
@@ -90,4 +107,5 @@ export {
   NoteButtonsBox,
   ColumnBox,
   TextBox,
+  StyledLink,
 };

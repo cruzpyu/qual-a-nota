@@ -11,8 +11,11 @@ import {
   Container,
   Title,
   Button,
+  StyledLink,
 } from "../styles/app";
 import BaseButton from "../components/BaseButton/BaseButton";
+import { Link } from "react-router-dom";
+import Icon from "../components/Icon/Icon";
 
 const Game = () => {
   const [images, setImages] = useState([]);
@@ -47,10 +50,9 @@ const Game = () => {
     setRound(round + 1);
     setOpenModal(true);
     setSuccessMessage(
-      `Você acertou! A nota correta era ${currentImage?.note?.name.replace(
-        /2/,
-        ""
-      )}!`
+      `Você acertou! A nota correta era ${currentImage?.note?.name
+        .replace(/2/, "")
+        .toUpperCase()}!`
     );
     setErrorMessage("");
   };
@@ -102,12 +104,14 @@ const Game = () => {
             source={"icons/refresh.png"}
             label="mudar nota"
             hasIcon
+            iconSize={16}
           />
           <BaseButton
             onClick={() => new Audio(`/sounds/${soundFile}`).play()}
             source={"icons/volume.png"}
             label="ouvir nota"
             hasIcon
+            iconSize={16}
           />
         </Box>
         {errorMessage && (
@@ -158,14 +162,10 @@ const Game = () => {
       {currentImage ? renderImages() : "Carregando imagem..."}
 
       {renderButtons()}
-      <BaseButton
-        source="icons/arrow.png"
-        ariaLabel="voltar para tela inicial"
-        path="/"
-        label="home"
-        style={{ alignSelf: "flex-start", paddingLeft: "30px" }}
-        hasIcon
-      />
+      <StyledLink role="button" to="/" aria-label="voltar para tela inicial">
+        <Icon source="icons/arrow.png" size={12} />
+        <p>home</p>
+      </StyledLink>
     </Container>
   );
 };
